@@ -506,6 +506,14 @@ class PulsarSolver(object):
         Check whether parval is consistent with N(prval, prerr), with a
         significance level of siglevel
         """
+        
+        if prval == None:
+          prval = 0.0
+        if prerr == None:
+          prerr = 0.0
+        if parval == None:
+          parval = 0.0
+          
         pval = sst.norm(np.float(prval), np.float(prerr)).cdf(np.float(parval))
 
         if pval < 0.5*siglevel or 1-pval < 0.5*siglevel:
