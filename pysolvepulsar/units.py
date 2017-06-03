@@ -27,6 +27,7 @@ def has_astropy_unit(x):
 
 def un_unitize(key, x):
     """Return the unitless representation of a parameter"""
+    rv = 0
     if has_astropy_unit(x):
         if key in par_units:
             rv = x.to(par_units[key]).value
